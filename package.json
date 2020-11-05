@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/fralonra/linkimage/issues"
   },
-  "homepage": "https://github.com/fralonra/linkimage#readme"
+  "homepage": "https://github.com/fralonra/linkimage#readme",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^2.7.0",
+    "opencv4nodejs": "^5.6.0"
+  }
 }
