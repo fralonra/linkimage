@@ -4,7 +4,7 @@ const tf = require('@tensorflow/tfjs-node')
 const MIN_MATCH_COUNT = 6
 const sift = new cv.SIFTDetector()
 
-function link(srcBuffer, dstBuffer, point) {
+function link (srcBuffer, dstBuffer, point) {
   const srcMat = imageBufferToMat(srcBuffer)
   const dstMat = imageBufferToMat(dstBuffer)
 
@@ -25,7 +25,7 @@ function link(srcBuffer, dstBuffer, point) {
       ...goodMatches.map(([a]) => {
         const pt = srcKPts[a.queryIdx].pt
         return [pt.y, pt.x]
-      }),
+      })
     ])
     .reshape([-1, 1, 2])
     .arraySync()
@@ -35,7 +35,7 @@ function link(srcBuffer, dstBuffer, point) {
       ...goodMatches.map(([a]) => {
         const pt = dstKPts[a.trainIdx].pt
         return [pt.y, pt.x]
-      }),
+      })
     ])
     .reshape([-1, 1, 2])
     .arraySync()
@@ -56,10 +56,10 @@ function link(srcBuffer, dstBuffer, point) {
   return [resultPt.x, resultPt.y]
 }
 
-function imageBufferToMat(imgBuffer) {
+function imageBufferToMat (imgBuffer) {
   return cv.imdecode(imgBuffer)
 }
 
 module.exports = {
-  link,
+  link
 }
