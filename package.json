@@ -1,8 +1,11 @@
 {
   "name": "linkimage",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Find corresponding point between images",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +13,14 @@
     "type": "git",
     "url": "git+https://github.com/fralonra/linkimage.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "homography",
+    "opencv",
+    "sift",
+    "tensorflow"
+  ],
+  "author": "zoron (https://github.com/fralonra/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fralonra/linkimage/issues"
   },
