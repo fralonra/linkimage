@@ -25,7 +25,8 @@ yarn add linkimage
 
 ```javascript
 const fs = require('fs')
-const { link } = require('linkimage')
+const { link, linkMat } = require('linkimage')
+const { imdecode, imread } = require('opencv4nodejs')
 
 const srcBuffer = fs.readFileSync('images/src.jpg')
 const dstBuffer = fs.readFileSync('images/dst.jpg')
@@ -35,6 +36,14 @@ const dstBuffer = fs.readFileSync('images/dst.jpg')
 const point = link(srcBuffer, dstBuffer)
 // You can also specify a source point:
 // const point = link(srcBuffer, dstBuffer, [100, 100])
+
+// You can also use 'linkMat' method to pass Mat objects directly.
+const srcMat = imdecode(srcBuffer)
+const dstMat = imdecode(dstBuffer)
+// Or use imread instead
+// const srcMat = imread('images/src.jpg')
+// const dstMat = imread('images/dst.jpg')
+const point2 = linkMat(srcMat, dstMat)
 
 // Returns the cordinates of the corresponding point in format [x, y].
 // If no point found, return [-1, -1].

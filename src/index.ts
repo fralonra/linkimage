@@ -38,6 +38,10 @@ function link(srcBuffer: Buffer, dstBuffer: Buffer, point?: Point): Point {
   const srcMat = imdecode(srcBuffer)
   const dstMat = imdecode(dstBuffer)
 
+  return linkMat(srcMat, dstMat, point)
+}
+
+function linkMat(srcMat: Mat, dstMat: Mat, point?: Point): Point {
   const srcKPts = sift.detect(srcMat)
   const dstKPts = sift.detect(dstMat)
 
@@ -64,8 +68,8 @@ function link(srcBuffer: Buffer, dstBuffer: Buffer, point?: Point): Point {
   const ptMat = new Mat(pt, CV_32FC2)
 
   const resultMat = ptMat.perspectiveTransform(homography)
-  const resultPt = (resultMat.at(0, 0) as unknown) as Vec2
+  const resultPt = resultMat.at(0, 0) as unknown as Vec2
   return [resultPt.x, resultPt.y]
 }
 
-export { link }
+export { link, linkMat }
